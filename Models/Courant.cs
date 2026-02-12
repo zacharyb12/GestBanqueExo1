@@ -1,12 +1,8 @@
 ﻿namespace Models
 {
-    public class Courant
+    public class Courant: Compte
     {
-        public string Numero { get; set; }
-        public double Solde { get; private set; }
-        public Personne Titulaire { get; set; }
       
-
         private double _ligneDeCredit;
 
         public double LigneDeCredit 
@@ -24,21 +20,11 @@
             }
         }
 
-        public void Retrait(double montant)
+        public override void Retrait(double montant)
         {
-            // Ligne de credit : 1000
-            // Solde           : 500
             if(montant <= ( Solde + _ligneDeCredit) )
             {
-                Solde -= montant;
-            }
-        }
-
-        public void Depot(double montant)
-        {
-            if(montant > 0)
-            {
-                Solde += montant;
+                base.Retrait(montant);
             }
         }
 
