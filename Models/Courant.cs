@@ -41,5 +41,16 @@
                 Solde += montant;
             }
         }
+
+        public static double operator + (double montant, Courant c)
+        {
+            if (c.Solde < 0)
+            {
+                Console.WriteLine("Hop hop les soldes négatifs, c'est non !");
+                return montant;
+            }
+
+            return c.Solde + montant;
+        }
     }
 }

@@ -27,7 +27,6 @@ namespace Models
                 return c; 
                 // null si aucun compte trouvé, rempli avec le compte si trouvé
             }
-            
         }
 
         public void Ajouter(Courant compte)
@@ -63,6 +62,21 @@ namespace Models
                 _comptes.Remove(numero);
                 Console.WriteLine("Compte supprimé avec succès");
             }
+        }
+
+        public double AvoirDesComptes(Personne p)
+        {
+            double totalDesComptes = 0;
+
+            foreach (Courant c in _comptes.Values)
+            {
+                if (c.Titulaire == p && c.Solde > 0)
+                {
+                    totalDesComptes += c.Solde;
+                } 
+            }
+
+            return totalDesComptes;
         }
     }
 }
