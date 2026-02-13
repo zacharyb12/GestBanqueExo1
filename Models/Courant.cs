@@ -28,6 +28,23 @@
             }
         }
 
+        protected override double CalculInteret()
+        {
+            //tandis que pour le compte courant
+
+            //si ( le solde est positif )
+            //le taux sera de 3%
+            //sinon
+            //le taux sera de 9.75%.
+            if(Solde > 0)
+            {
+                return Solde * 0.03;
+            }else
+            {
+                return Solde * 0.0975;
+            }
+        }
+
         public static double operator + (double montant, Courant c)
         {
             if (c.Solde < 0)

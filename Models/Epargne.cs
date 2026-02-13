@@ -15,5 +15,15 @@ namespace Models
             base.Retrait(montant);
             DateDernierRetrait = DateTime.Now;
         }
+
+        protected override double CalculInteret()
+        {
+            //en sachant que pour un livret d’épargne le taux est toujours de 4.5%
+            return Solde * 0.045;
+
+            //double result = (Solde / 100) * 4.5;
+            //return result;
+
+        }
     }
 }

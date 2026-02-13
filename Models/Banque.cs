@@ -8,17 +8,17 @@ namespace Models
         // Champs
         //private Dictionary<string, Courant> _comptes = new Dictionary<string,Courant>();
         // 👇🏼 écriture raccourcie de la ligne du dessus
-        private Dictionary<string, Courant> _comptes = [];
+        private Dictionary<string, Compte> _comptes = [];
 
         // Props
         public string Nom { get; set; }
 
         // Indexeur
-        public Courant this[string numero]
+        public Compte this[string numero]
         {
             get
             {
-                Courant c;
+                Compte c;
                 bool compteTrouve = _comptes.TryGetValue(numero, out c);
                 if (!compteTrouve)
                 {
@@ -29,7 +29,7 @@ namespace Models
             }
         }
 
-        public void Ajouter(Courant compte)
+        public void Ajouter(Compte compte)
         {
             //V1 : Minimum syndical
             //_comptes.Add(compte.Numero, compte);

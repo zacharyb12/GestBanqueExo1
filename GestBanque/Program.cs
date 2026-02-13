@@ -1,9 +1,19 @@
 ﻿using Models;
+using System.Collections;
+using System.Security.Cryptography.X509Certificates;
 
 namespace GestBanque
 {
     internal class Program
     {
+
+        /*
+         * - Encapsulation : Regrouper les données et les comportements qui les manipulent dans une même classe et contrôler l'accès via des membres publics/privés.
+         * - Héritage      : Créer une nouvelle classe à partir d'une classe existante pour réutiliser et spécialiser son comportement.
+         * - Polymorphisme : Capacité d’un même appel (méthode/propriété) à se comporter différemment selon le type concret de l’objet.
+         * - Abstraction   : Simplifier en modélisant uniquement les aspects essentiels d’un objet et en cachant les détails d’implémentation.
+         *
+         */
         static void Main(string[] args)
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
@@ -55,14 +65,16 @@ namespace GestBanque
             Console.WriteLine("\nCréation d'une banque :\n".ToUpper());
 
             Banque b1 = new Banque();
+
             b1.Nom = "MaSuperBanque";
 
             b1.Ajouter(c1);
             b1.Ajouter(c1);
 
-            Courant compteRecherche = b1["BE45 4545 4545 4545"];
+            Compte compteRecherche1 = b1["BE45 4545 4545 4545"];
+            Courant compteRecherche = (Courant)b1["BE45 4545 4545 4545"];
             // Si on a trouvé un compte
-            if(compteRecherche != null)
+            if (compteRecherche != null)
             {
                 Console.WriteLine("Compte trouvé");
                 Console.WriteLine($"Le compte appartient à {compteRecherche.Titulaire.Prenom} {compteRecherche.Titulaire.Nom}");
@@ -79,6 +91,13 @@ namespace GestBanque
 
             Console.ReadKey();
 
-        }
+
+            
+
+
+
+            
+
+}
     }
 }
