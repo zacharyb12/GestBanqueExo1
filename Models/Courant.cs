@@ -1,6 +1,8 @@
-﻿namespace Models
+﻿using Models.Interfaces;
+
+namespace Models
 {
-    public class Courant: Compte
+    public class Courant: Compte 
     {
       
         private double _ligneDeCredit;

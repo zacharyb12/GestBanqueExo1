@@ -1,4 +1,5 @@
 ﻿using Models;
+using Models.Interfaces;
 using System.Collections;
 using System.Security.Cryptography.X509Certificates;
 
@@ -91,13 +92,15 @@ namespace GestBanque
 
             Console.ReadKey();
 
+            Courant courant = new Courant();
+            Epargne epargne = new Epargne();
 
-            
+            ICustomer customerInstance = courant;
+
+            IBanker bankerInstance = courant;
 
 
 
-            
-
-}
+        }
     }
 }

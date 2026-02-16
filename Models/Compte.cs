@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Models.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Models
 {
-    public abstract class Compte
+    public abstract class Compte : IBanker 
     {
         public string Numero { get; set; }
         public double Solde { get; private set; }
@@ -41,4 +42,5 @@ namespace Models
         }
 
     }
+
 }
